@@ -4,7 +4,9 @@ oil.setup({
     columns = {
         "icon",
     },
-    lsp_rename_autosave = false,
+    lsp_file_methods = {
+        autosave_changes = false
+    },
     keymaps = {
         ["<C-s>"] = false,
         ["<C-h>"] = false,
