@@ -86,6 +86,13 @@ local plugins = {
             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
     },
+    {
+        "windwp/nvim-ts-autotag",
+        after = "nvim-treesitter",
+        config = function()
+            require("nvim-ts-autotag").setup()
+        end,
+    },
 
     -- Indent guides
     {
@@ -96,14 +103,6 @@ local plugins = {
             indent = { char = "▏" },
             scope = { enabled = false },
         },
-        -- config = function(_, opts)
-        --     local hooks = require("ibl.hooks")
-        --     local palette = require("catppuccin.palettes").get_palette()
-        --     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-        --         vim.api.nvim_set_hl(0, "IblIndent", { fg = palette.surface0A })
-        --     end)
-        --     require("ibl").setup(opts)
-        -- end,
     },
 
     -- Telescope
@@ -126,9 +125,6 @@ local plugins = {
             require("copilot").setup({
                 panel = { enabled = false },
                 suggestion = { enabled = true },
-                -- filetypes = {
-                --     ["cpp"] = false,
-                -- },
             })
         end,
     },
