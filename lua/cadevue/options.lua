@@ -25,6 +25,6 @@ vim.opt.numberwidth = 4
 
 vim.opt.termguicolors = true
 
-vim.opt.foldmethod = "marker"
+vim.opt.foldmethod = "manual"
 vim.opt.foldlevel = 99
 vim.opt.foldenable = true
