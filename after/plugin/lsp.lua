@@ -118,6 +118,21 @@ vim.lsp.config("omnisharp", {
     on_attach = on_attach,
 })
 
+-- Golang (gopls)
+vim.lsp.config("gopls", {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+                shadow = true,
+            },
+            staticcheck = true,
+        },
+    },
+})
+
 -- Lua Language Server (Neovim config/dev)
 vim.lsp.config("lua_ls", {
     capabilities = capabilities,
