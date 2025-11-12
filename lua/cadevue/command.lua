@@ -35,3 +35,15 @@ vim.api.nvim_create_user_command("CustomQ", confirm_quit, {})
 vim.cmd [[
   cabbrev q CustomQ
 ]]
+
+function SetTwoSpaceIndent()
+    vim.opt.tabstop = 2
+    vim.opt.softtabstop = 2
+    vim.opt.shiftwidth = 2
+end
+
+function SetFourSpaceIndent()
+    vim.opt.tabstop = 4
+    vim.opt.softtabstop = 4
+    vim.opt.shiftwidth = 4
+end
