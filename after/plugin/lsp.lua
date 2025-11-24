@@ -85,7 +85,7 @@ local on_attach = function(_, bufnr)
 
     -- Format document
     keymap("n", "<leader>df", function()
-        vim.lsp.buf.format({ async = true })
+        vim.lsp.buf.format()
     end, opts)
 end
 
@@ -155,18 +155,19 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.diagnostic.config({
-    virtual_text = true, -- inline errors
-    signs = true,        -- gutter signs
-    underline = true,    -- underline problematic text
+    virtual_text = true,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN]  = "",
+            [vim.diagnostic.severity.HINT]  = "",
+            [vim.diagnostic.severity.INFO]  = "",
+        },
+    },
+    underline = true,
     update_in_insert = false,
     severity_sort = true,
 })
-
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
 
 vim.api.nvim_create_autocmd("CursorHold", {
     callback = function()
