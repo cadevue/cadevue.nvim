@@ -1,6 +1,7 @@
 -- Setup colorscheme
 local dracula = require("dracula")
-dracula.setup({ colors = {
+dracula.setup({
+    colors = {
         orange = "#f7ab59",
         green = "#8fde76",
         purple = "#b897e8",
@@ -57,3 +58,30 @@ vim.keymap.set('n', '<A-5>', ':BufferLineGoToBuffer 5<CR>', { desc = 'Go to buff
 vim.keymap.set('n', '<A-6>', ':BufferLineGoToBuffer 6<CR>', { desc = 'Go to buffer 6' })
 vim.keymap.set('n', '<A-7>', ':BufferLineGoToBuffer 7<CR>', { desc = 'Go to buffer 7' })
 vim.keymap.set('n', '<A-8>', ':BufferLineGoToBuffer 8<CR>', { desc = 'Go to buffer 8' })
+
+-- Indent-blankline setup with custom colors
+local highlight = {
+    "RainbowRed",
+    "RainbowYellow",
+    "RainbowBlue",
+    "RainbowOrange",
+    "RainbowGreen",
+    "RainbowViolet",
+    "RainbowCyan",
+}
+
+local hooks = require "ibl.hooks"
+
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+    vim.api.nvim_set_hl(0, "RainbowRed",    { fg = "#4F383B" })
+    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#55462F" })
+    vim.api.nvim_set_hl(0, "RainbowBlue",   { fg = "#2E3A4C" })
+    vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#4A3B2D" })
+    vim.api.nvim_set_hl(0, "RainbowGreen",  { fg = "#354027" })
+    vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#463255" })
+    vim.api.nvim_set_hl(0, "RainbowCyan",   { fg = "#2C3B3E" })
+end)
+
+require("ibl").setup {
+    indent = { highlight = highlight },
+}
