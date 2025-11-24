@@ -99,10 +99,7 @@ local plugins = {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         event = { "BufReadPost", "BufNewFile" },
-        opts = {
-            indent = { char = "▏" },
-            scope = { enabled = false },
-        },
+
     },
 
     -- Telescope
@@ -137,6 +134,16 @@ local plugins = {
 
     -- Buffer Line
     { 'akinsho/bufferline.nvim', version = "*" },
+
+    -- Git Blame
+    {
+        "f-person/git-blame.nvim",
+        opts = {
+            enabled = false,
+            message_template = "<<sha>><summary> • <author>", -- template for the blame message, check the Message template section for more options
+            virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
+        },
+    }
 }
 
 -- setup lazy.nvim
