@@ -140,10 +140,13 @@ local plugins = {
         "f-person/git-blame.nvim",
         opts = {
             enabled = false,
-            message_template = "<<sha>><summary> • <author>", -- template for the blame message, check the Message template section for more options
+            message_template = "<<sha>><summary> • <author> • <date>", -- template for the blame message, check the Message template section for more options
+            date_format = "%d-%m-%Y", -- template for the date, check Date format section
             virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
         },
-    }
+    },
+    -- Code Lens
+    { 'VidocqH/lsp-lens.nvim', opts = {} },
 }
 
 -- setup lazy.nvim
